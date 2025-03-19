@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bokor&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap" rel="stylesheet">
+
+
+  <title>Mohan D Train Email</title>
+  <style>
+    body {
+      text-align: center;
+      background: url("https://accelleron-industries.com/content/accelleronind/charge-magazine/articles/how-do-diesel-electric-trains-work-and-why-do-they-need-turbochargers/_jcr_content/root/container_1661032700/image_587297026.coreimg.82.3840.jpeg/1704629692636/how-do-diesel-electric-trains-work-and-why-do-they-need-turbochargers-2880x1920.jpeg");
+      background-size: cover;
+      background-position: center;
+      color: Red;
+      font-family: helvetica;
+      
+    }
+    p {
+      font-size: 25px;
+      font-family: "Old Standard TT", serif;
+      font-weight: 400;
+      font-style: normal;
+      color: red;
+    }
+    input {
+      border: 0;
+      padding: 10px;
+      font-size: 15px;
+      font-family: "Edu AU VIC WA NT Pre";
+      font-weight: 400;
+      font-style: normal;
+      
+    }
+    input[type="submit"] {
+      background: Green;
+      color: White;
+      font-family: "Bokor", system-ui;
+      font-weight: 400;
+      font-style: normal;
+        }
+      img {
+        border-radius: 100px;
+      }
+
+</style>
+</head>
+<body>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY-cJ2eTQO6CFmZQmP6uCxk-uVL_53U7aZzw&s">
+  <p>Hi! I'm Mohan, I like trains. Gimme your email so I can scam you!</p>
+  <input type="email" placeholder="Your Name" id="Name">
+  <input type="email" placeholder="Your email" id="Email">
+  <input type="email" placeholder="What your favorite food?" id="Question">
+  <input type="submit" id="submit">
+  <script type="module">
+	  
+	  
+
+	
+	  
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+	import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+	
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDY_YySHNUBhkrTQuRXPs1zFTF4bIMYsxQ",
+      authDomain: "mohan-d-web-40cee.firebaseapp.com",
+      projectId: "mohan-d-web-40cee",
+      storageBucket: "mohan-d-web-40cee.firebasestorage.app",
+      messagingSenderId: "502030448815",
+      appId: "1:502030448815:web:26630dc34731d9195cfc5a"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+	
+	
+	const Name = document.querySelector("#Name") 
+	const Email = document.querySelector("#Email")
+	const Question = document.querySelector("#Question")
+	document.querySelector('#submit').addEventListener('click', Submit)
+  	
+	function Submit() {
+  	  const timestamp = buildTimestamp()
+	  
+  	  set(ref(db, timestamp), {
+  		  Name: Name.value,
+  	      email: Email.value,
+		  Question: Question.value,
+  	  });
+
+  	  Name.value = ""
+  	  Email.value = ""
+	  Question.vaule = ""
+  	}
+    
+	function buildTimestamp() {
+	  const now = new Date();
+	  let timestamp = now.getFullYear().toString() + "/";
+	  //const month = now.toLocaleString('default', { month: 'long' });
+
+	  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+	  month = month.toString()
+	  month = addLeadingZero(month)
+	  timestamp += month + "/"; 
+
+	  let date = now.getDate().toString()
+	  date = addLeadingZero(date)
+	  timestamp += date + "/";
+
+	  let hours = now.getHours().toString()
+	  hours = addLeadingZero(hours)
+	  timestamp += hours + ":";
+
+	  let minutes = now.getMinutes().toString()
+	  minutes = addLeadingZero(minutes)
+	  timestamp += minutes + ":";
+
+	  let seconds = now.getSeconds().toString()
+	  seconds = addLeadingZero(seconds)
+	  timestamp += seconds;
+  
+	  return timestamp
+	}
+	
+	function addLeadingZero(units) {
+		if (units.length < 2) {
+			units = "0" + units
+		}
+		return units
+	}
+	
+	
+	
+	
+  </script>
+</body>
