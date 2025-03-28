@@ -94,6 +94,11 @@ small {
   background-image: url("https://i.pinimg.com/236x/47/ac/74/47ac74ef21e9805a73038b6e05abef8e.jpg");
   background-size: 600px 200px;
 }
+  .elgato{
+	  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTca2d9IEaAvRko4njm2dtfwl3A8xvK18c5w&s");
+	  background-size: 600px 200px;
+  }
+
 .price {
   float: right;
 }
@@ -147,6 +152,13 @@ input {
   <p>Custom Cake <span class="price">$30</span><br />
   <small>We make custom cakes for special partys and more! They come in vanilla, chocolate and strawberry. The sizes comes in extra small, small, medium, large and extra large. Since it's custom we really don't have control over what kinda of cake people pick so uh, this is the result</small></p>
 </div>
+
+<div class="elgato">
+<input type="number" min="0" style="width: 50px" class="quantities">
+  <p>El gato <span class="price">$35</span><br />
+  <small>Despite the name it's not made of cat we swear. It's just tastes really good and is cool like cats(We don't know who named it)</small></p>
+</div>
+
 <br><br>
   <input type="email" placeholder="Your Name" id="Name">
   <input type="email" placeholder="Your email" id="Email">
@@ -187,7 +199,7 @@ const Name = document.querySelector("#Name")
 const Email = document.querySelector("#Email")
 const quantities = document.querySelectorAll(".quantities")
 const prices = document.querySelectorAll(".price")
-const itemsList = ["Steak", "Hotwich", "Cake"]
+const itemsList = ["Steak", "Hotwich", "Cake", "Elgato"]
 document.querySelector('#submit').addEventListener('click', Submit)
 	
 function Submit() {
